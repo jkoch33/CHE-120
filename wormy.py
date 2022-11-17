@@ -171,16 +171,16 @@ def getRandomLocation():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
 
-def showGameOverScreen():
-    gameOverFont = pygame.font.Font('freesansbold.ttf', 150)
-    gameSurf = gameOverFont.render('Game', True, WHITE)
-    overSurf = gameOverFont.render('Over', True, WHITE)
-    gameRect = gameSurf.get_rect()
-    overRect = overSurf.get_rect()
-    gameRect.midtop = (WINDOWWIDTH / 2, 10)
-    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)
+def showGameOverScreen(): #Defines function for game over screen when player dies. JK
+    gameOverFont = pygame.font.Font('freesansbold.ttf', 150) #JK Sets font for game over text to freesansbold and size 150.
+    gameSurf = gameOverFont.render('Game', True, WHITE) #JK Assigns string 'Game' in white text to the surface object gameSurf
+    overSurf = gameOverFont.render('Over', True, WHITE) #JK Assigns string 'Over' in white to the surface object overSurf
+    gameRect = gameSurf.get_rect() #JK Assigns rectangle with surface object gameSurf to gameRect
+    overRect = overSurf.get_rect() #JK Assigns rectangle with surface object overSurf to overRect
+    gameRect.midtop = (WINDOWWIDTH / 2, 10)#JK Assigns size to the rectangle gameRect
+    overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)#Jk Assigns size to rectangle overRect.
 
-    DISPLAYSURF.blit(gameSurf, gameRect)
+    DISPLAYSURF.blit(gameSurf, gameRect)#JK Displays gameRect rectangle with gameSurf text
     DISPLAYSURF.blit(overSurf, overRect)
     drawPressKeyMsg()
     pygame.display.update()
