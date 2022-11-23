@@ -171,24 +171,24 @@ def getRandomLocation():
     return {'x': random.randint(0, CELLWIDTH - 1), 'y': random.randint(0, CELLHEIGHT - 1)}
 
 
-def showGameOverScreen(): #Defines function for game over screen when player dies. JK
+def showGameOverScreen(): #JK Defines function for game over screen when player dies.
     gameOverFont = pygame.font.Font('freesansbold.ttf', 150) #JK Sets font for game over text to freesansbold and size 150.
-    gameSurf = gameOverFont.render('Game', True, WHITE) #JK Assigns string 'Game' in white text to the surface object gameSurf
-    overSurf = gameOverFont.render('Over', True, WHITE) #JK Assigns string 'Over' in white to the surface object overSurf
-    gameRect = gameSurf.get_rect() #JK Assigns rectangle with surface object gameSurf to gameRect
-    overRect = overSurf.get_rect() #JK Assigns rectangle with surface object overSurf to overRect
-    gameRect.midtop = (WINDOWWIDTH / 2, 10)#JK Assigns size to the rectangle gameRect
+    gameSurf = gameOverFont.render('Game', True, WHITE) #JK Assigns string 'Game' in white text to the surface object gameSurf.
+    overSurf = gameOverFont.render('Over', True, WHITE) #JK Assigns string 'Over' in white to the surface object overSurf.
+    gameRect = gameSurf.get_rect() #JK Assigns rectangle with surface object gameSurf to gameRect.
+    overRect = overSurf.get_rect() #JK Assigns rectangle with surface object overSurf to overRect.
+    gameRect.midtop = (WINDOWWIDTH / 2, 10)#JK Assigns size to the rectangle gameRect.
     overRect.midtop = (WINDOWWIDTH / 2, gameRect.height + 10 + 25)#Jk Assigns size to rectangle overRect.
 
-    DISPLAYSURF.blit(gameSurf, gameRect)#JK Displays gameRect rectangle with gameSurf text
-    DISPLAYSURF.blit(overSurf, overRect)
-    drawPressKeyMsg()
+    DISPLAYSURF.blit(gameSurf, gameRect)#JK Displays 'Game' on screen in white with freesansbold font.
+    DISPLAYSURF.blit(overSurf, overRect)# JK Displays 'Over' on screen in white with freesansbold font.
+    drawPressKeyMsg()#JK calls function to draw 'Press a key to play' in the bottom left of the display surface object.
     pygame.display.update()
-    pygame.time.wait(500)
+    pygame.time.wait(500)#JK sets a timer of 500ms to prevent player from accidentally starting the next game instantly.
     checkForKeyPress() # clear out any key presses in the event queue
 
     while True:
-        if checkForKeyPress():
+        if checkForKeyPress(): #
             pygame.event.get() # clear event queue
             return
 
